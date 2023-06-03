@@ -1,5 +1,5 @@
 {
-  "name": "inhouse-content-full",
+  "name": "in-house-content-full",
   "version": "0.0.0",
   "scripts": {
     "dev": "next dev",
