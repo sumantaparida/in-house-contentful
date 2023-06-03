@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+    '@types/styled-components':
+        specifier: ^5.1.26
+        version: 5.1.26
     next:
         specifier: ^13.4.1
         version: 13.4.4(@babel/core@7.22.1)(react-dom@18.2.0)(react@18.2.0)
@@ -16,6 +19,9 @@ dependencies:
     react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+    styled-components:
+        specifier: ^5.3.11
+        version: 5.3.11(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
 
 devDependencies:
     '@commitlint/cli':
@@ -60,9 +66,6 @@ devDependencies:
     '@types/react':
         specifier: ^18.2.5
         version: 18.2.8
-    '@types/styled-components':
-        specifier: ^5.1.26
-        version: 5.1.26
     '@typescript-eslint/eslint-plugin':
         specifier: ^5.59.2
         version: 5.59.8(@typescript-eslint/parser@5.59.8)(eslint@8.42.0)(typescript@4.9.5)
@@ -174,9 +177,6 @@ devDependencies:
     start-server-and-test:
         specifier: ^2.0.0
         version: 2.0.0
-    styled-components:
-        specifier: ^5.3.11
-        version: 5.3.11(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
     tailwindcss:
         specifier: ^3.3.2
         version: 3.3.2(ts-node@10.9.1)
@@ -271,7 +271,6 @@ packages:
         engines: { node: '>=6.9.0' }
         dependencies:
             '@babel/types': 7.22.4
-        dev: true
 
     /@babel/helper-compilation-targets@7.22.1(@babel/core@7.22.1):
         resolution:
@@ -968,28 +967,24 @@ packages:
             }
         dependencies:
             '@emotion/memoize': 0.8.1
-        dev: true
 
     /@emotion/memoize@0.8.1:
         resolution:
             {
                 integrity: sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA==,
             }
-        dev: true
 
     /@emotion/stylis@0.8.5:
         resolution:
             {
                 integrity: sha512-h6KtPihKFn3T9fuIrwvXXUOwlx3rfUvfZIcP5a6rh8Y7zjE3O06hT5Ss4S/YI1AYhuZ1kjaE/5EaOOI2NqSylQ==,
             }
-        dev: true
 
     /@emotion/unitless@0.7.5:
         resolution:
             {
                 integrity: sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==,
             }
-        dev: true
 
     /@eslint-community/eslint-utils@4.4.0(eslint@8.42.0):
         resolution:
@@ -2448,7 +2443,7 @@ packages:
         dependencies:
             '@types/react': 18.2.8
             hoist-non-react-statics: 3.3.2
-        dev: true
+        dev: false
 
     /@types/istanbul-lib-coverage@2.0.4:
         resolution:
@@ -2557,7 +2552,6 @@ packages:
             {
                 integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==,
             }
-        dev: true
 
     /@types/react-dom@18.2.4:
         resolution:
@@ -2577,14 +2571,12 @@ packages:
             '@types/prop-types': 15.7.5
             '@types/scheduler': 0.16.3
             csstype: 3.1.2
-        dev: true
 
     /@types/scheduler@0.16.3:
         resolution:
             {
                 integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==,
             }
-        dev: true
 
     /@types/semver@7.5.0:
         resolution:
@@ -2623,7 +2615,7 @@ packages:
             '@types/hoist-non-react-statics': 3.3.1
             '@types/react': 18.2.8
             csstype: 3.1.2
-        dev: true
+        dev: false
 
     /@types/testing-library__jest-dom@5.14.6:
         resolution:
@@ -3377,14 +3369,12 @@ packages:
             lodash: 4.17.21
             picomatch: 2.3.1
             styled-components: 5.3.11(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-        dev: true
 
     /babel-plugin-syntax-jsx@6.18.0:
         resolution:
             {
                 integrity: sha512-qrPaCSo9c8RHNRHIotaufGbuOBN8rtdC4QrrFFc43vyWCCz7Kl7GL1PGaXtMGQZUXrkCjNEgxDfmAuAabr/rlw==,
             }
-        dev: true
 
     /babel-preset-current-node-syntax@1.0.1(@babel/core@7.22.1):
         resolution:
@@ -3689,7 +3679,6 @@ packages:
             {
                 integrity: sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==,
             }
-        dev: true
 
     /caniuse-api@3.0.0:
         resolution:
@@ -4325,7 +4314,6 @@ packages:
                 integrity: sha512-FyyrDHZKEjXDpNJYvVsV960FiqQyXc/LlYmsxl2BcdMb2WPx0OGRVgTg55rPSyLSNMqP52R9r8geSp7apN3Ofg==,
             }
         engines: { node: '>=4' }
-        dev: true
 
     /css-declaration-sorter@6.4.0(postcss@8.4.24):
         resolution:
@@ -4361,7 +4349,6 @@ packages:
             camelize: 1.0.1
             css-color-keywords: 1.0.0
             postcss-value-parser: 4.2.0
-        dev: true
 
     /css-tree@2.2.1:
         resolution:
@@ -4517,7 +4504,6 @@ packages:
             {
                 integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==,
             }
-        dev: true
 
     /cypress@12.13.0:
         resolution:
@@ -6820,7 +6806,6 @@ packages:
             }
         dependencies:
             react-is: 16.13.1
-        dev: true
 
     /homedir-polyfill@1.0.3:
         resolution:
@@ -8785,7 +8770,6 @@ packages:
             {
                 integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==,
             }
-        dev: true
 
     /log-symbols@4.1.0:
         resolution:
@@ -10563,7 +10547,6 @@ packages:
             {
                 integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==,
             }
-        dev: true
 
     /postcss@8.4.14:
         resolution:
@@ -10830,7 +10813,6 @@ packages:
             {
                 integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==,
             }
-        dev: true
 
     /react-is@17.0.2:
         resolution:
@@ -10844,7 +10826,6 @@ packages:
             {
                 integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==,
             }
-        dev: true
 
     /react@18.2.0:
         resolution:
@@ -11352,7 +11333,6 @@ packages:
             {
                 integrity: sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==,
             }
-        dev: true
 
     /shebang-command@1.2.0:
         resolution:
@@ -11925,7 +11905,6 @@ packages:
             react-is: 18.2.0
             shallowequal: 1.1.0
             supports-color: 5.5.0
-        dev: true
 
     /styled-jsx@5.1.1(@babel/core@7.22.1)(react@18.2.0):
         resolution:
