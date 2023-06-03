@@ -6,8 +6,8 @@ const Index = () => {
     <Main
       meta={
         <Meta
-          title="inhouse content full"
-          description="inhouse content full description"
+          title="In house content full"
+          description="in house content full description"
         />
       }
     >
