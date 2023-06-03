@@ -1,3 +1,4 @@
+import Button from '@mui/material/Button';
 import type { ReactNode } from 'react';
 
 import { AppConfig } from '@/utils/AppConfig';
@@ -14,7 +15,10 @@ const Header = (props: HeaderProps) => {
         <HeaderWrapper>
             {props.children}
             {props.name}
-            {AppConfig.title}
+            <h4 className="text-white">{AppConfig.title}</h4>
+            <Button color="success" className="bg-green-400 text-green-500">
+                Success Pagayts
+            </Button>
         </HeaderWrapper>
     );
 };

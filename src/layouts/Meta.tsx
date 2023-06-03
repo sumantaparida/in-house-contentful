@@ -16,6 +16,10 @@ const Meta = (props: IMetaProps) => {
     return (
         <>
             <Head>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1, width=device-width"
+                />
                 <meta charSet="UTF-8" key="charset" />
                 <meta
                     name="viewport"
