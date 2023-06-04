@@ -1,16 +1,15 @@
 import Link from 'next/link';
 
-import styles from '../../styles/Navbar.module.css';
+import NavItemStyle from './style';
 
-const NavItem = ({ text, href, active, icon }: any) => {
+const NavItem = ({ text, href, isActive, icon }: any) => {
     return (
-        <Link
-            href={href}
-            className={`${styles.link} ${active ? `${styles.active}` : ''}`}
-        >
-            <div className={styles.icon}>{icon}</div>
-            {text}
-        </Link>
+        <NavItemStyle>
+            <Link href={href} className={`link ${isActive ? 'active' : ''}`}>
+                <div className="icon">{icon}</div>
+                {text}
+            </Link>
+        </NavItemStyle>
     );
 };
 

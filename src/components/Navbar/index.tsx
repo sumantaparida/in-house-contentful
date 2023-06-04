@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
-import styles from '../../styles/Navbar.module.css';
 import NavItem from '../NavItem';
+import NavigationStyle from './style';
 
 const MENU_LIST = [
     {
@@ -97,23 +97,28 @@ const Navbar = () => {
     const [active, setActive] = useState(activeTab);
 
     return (
-        <header className={styles.navHeader}>
-            <nav className={styles.navBar}>
-                <div className={styles.navMenuList}>
-                    {MENU_LIST.map(menu => (
-                        <div
-                            onClick={() => {
-                                setActive(menu.href);
-                            }}
-                            key={menu.text}
-                            role="presentation"
-                        >
-                            <NavItem active={active === menu.href} {...menu} />
-                        </div>
-                    ))}
-                </div>
-            </nav>
-        </header>
+        <NavigationStyle>
+            <header className="navHeader">
+                <nav className="navBar">
+                    <div className="navMenuList">
+                        {MENU_LIST.map(menu => (
+                            <div
+                                onClick={() => {
+                                    setActive(menu.href);
+                                }}
+                                key={menu.text}
+                                role="presentation"
+                            >
+                                <NavItem
+                                    isActive={active === menu.href}
+                                    {...menu}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </nav>
+            </header>
+        </NavigationStyle>
     );
 };
 
