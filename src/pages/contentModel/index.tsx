@@ -6,7 +6,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-import Navbar from '@/components/Navbar';
+import { Meta } from '@/layouts/Meta';
+import { Main } from '@/templates/Main';
+
+// import Navbar from '@/components/Navbar';
 
 function createData(
     name: string,
@@ -36,8 +39,15 @@ const rows = [
 ];
 const ContentModel = () => {
     return (
-        <>
-            <Navbar />
+        <Main
+            meta={
+                <Meta
+                    title="In house content full"
+                    description="in house content full description"
+                />
+            }
+        >
+            {/* <Navbar /> */}
             <TableContainer component={Paper}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
@@ -75,7 +85,7 @@ const ContentModel = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-        </>
+        </Main>
     );
 };
 export default ContentModel;

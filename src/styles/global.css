@@ -15,8 +15,5 @@
         --background-end-rgb: rgb(0, 0, 0);
     }
 }
-/* 
 body {
-    color: var(--foreground-rgb);
-    background: var(--background-start-rgb);
-} */
+}
