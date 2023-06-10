@@ -97,27 +97,20 @@ const Navbar = () => {
     const [active, setActive] = useState(activeTab);
 
     return (
-        <NavigationStyle>
-            <header className="navHeader">
-                <nav className="navBar">
-                    <div className="navMenuList">
-                        {MENU_LIST.map(menu => (
-                            <div
-                                onClick={() => {
-                                    setActive(menu.href);
-                                }}
-                                key={menu.text}
-                                role="presentation"
-                            >
-                                <NavItem
-                                    isActive={active === menu.href}
-                                    {...menu}
-                                />
-                            </div>
-                        ))}
+        <NavigationStyle className="bg-gray-800 p-2">
+            <nav className="flex flex-row gap-x-2.5">
+                {MENU_LIST.map(menu => (
+                    <div
+                        onClick={() => {
+                            setActive(menu.href);
+                        }}
+                        key={menu.text}
+                        role="presentation"
+                    >
+                        <NavItem isActive={active === menu.href} {...menu} />
                     </div>
-                </nav>
-            </header>
+                ))}
+            </nav>
         </NavigationStyle>
     );
 };

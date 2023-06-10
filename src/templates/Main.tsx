@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 
+import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
 
 type IMainProps = {
@@ -11,7 +12,9 @@ const Main = (props: IMainProps) => (
     <div className="flex w-full flex-col">
         {props.meta}
         <div className="">
-            <Navbar />
+            <Header>
+                <Navbar />
+            </Header>
             <main className="text-xl">{props.children}</main>
         </div>
     </div>
