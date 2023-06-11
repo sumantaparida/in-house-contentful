@@ -55,14 +55,21 @@ const ContentWrapper = styled.div`
                         cursor: pointer;
                     }
                     td {
-                        // padding: 6px;
-                        &.first {
+                        &:nth-child(1) {
                             width: 40px;
+                            & > div {
+                            }
                         }
-                        &.secound {
+                        &:nth-child(2) {
                             width: 25%;
                         }
-                        &.last {
+                        &:nth-child(2),
+                        &:nth-child(3),
+                        &:nth-child(4),
+                        &:nth-child(5) {
+                            padding: 9.9px;
+                        }
+                        &:nth-last-child(1) {
                             width: 66px;
                             text-align: center;
                         }
