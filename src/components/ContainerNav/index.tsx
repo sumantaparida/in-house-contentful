@@ -16,7 +16,7 @@ const ContainerNav = (props: ContainerNavProps) => {
             <div className="_center flex flex-1 flex-row items-center rounded-lg border border-gray-500 bg-white p-1">
                 <div className="flex items-center rounded-md border border-gray-400 bg-gray-300">
                     <p className="px-1 text-sm font-semibold">Content type</p>
-                    <select className="rounded-r bg-green-700 p-1 text-sm font-semibold text-cyan-50">
+                    <select className="rounded-r border border-green-700 bg-green-700 p-1 text-sm font-semibold text-cyan-50">
                         <option value="any">Any</option>
                         <option value="any">Problem</option>
                         <option value="any">turtlemint</option>
