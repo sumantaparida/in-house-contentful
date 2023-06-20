@@ -10,7 +10,7 @@ type HeaderProps = {
 const Header = (props: HeaderProps) => {
     return (
         <HeaderWrapper>
-            <div className="top-nav bg-gray-900 p-2 text-white">sdsd</div>
+            <div className="top-nav bg-gray-900 px-4 py-2 text-white">sdsd</div>
             {props.children}
         </HeaderWrapper>
     );

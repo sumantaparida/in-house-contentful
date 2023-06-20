@@ -55,6 +55,9 @@ const ContentWrapper = styled.div`
                         cursor: pointer;
                     }
                     td {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
                         &:nth-child(1) {
                             width: 40px;
                             & > div {
@@ -66,7 +69,8 @@ const ContentWrapper = styled.div`
                         &:nth-child(2),
                         &:nth-child(3),
                         &:nth-child(4),
-                        &:nth-child(5) {
+                        &:nth-child(5),
+                        &:nth-child(6) {
                             padding: 9.9px;
                         }
                         &:nth-last-child(1) {
@@ -77,6 +81,10 @@ const ContentWrapper = styled.div`
                 }
             }
         }
+    }
+    ._profile {
+        width: 25px;
+        height: 25px;
     }
 `;
 
