@@ -160,7 +160,7 @@ const ContentDetails = () => {
                                             </TabList>
                                         </Box>
                                         <TabPanel value="general">
-                                            Item One
+                                            Editor
                                         </TabPanel>
                                         <TabPanel value="comments">
                                             Item Two
