@@ -10,6 +10,7 @@
       "error",
       {
         "singleQuote": true,
+        "tabWidth": 2,
         "endOfLine": "auto"
       }
     ]
@@ -40,6 +41,7 @@
           "error",
           {
             "singleQuote": true,
+            "tabSize" : 2,
             "endOfLine": "auto"
           }
         ],
