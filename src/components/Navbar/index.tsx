@@ -13,6 +13,8 @@ const MENU_LIST = [
                 data-test-id="cf-ui-icon"
                 viewBox="0 0 16 16"
                 aria-hidden="true"
+                width="20"
+                height="20"
             >
                 <g clipPath="url(#Home_svg__a)">
                     <path
@@ -36,6 +38,8 @@ const MENU_LIST = [
                 data-test-id="cf-ui-icon"
                 viewBox="0 0 16 16"
                 aria-hidden="true"
+                width="20"
+                height="20"
             >
                 <g clipPath="url(#Wrench_svg__a)">
                     <path
@@ -59,6 +63,8 @@ const MENU_LIST = [
                 data-test-id="cf-ui-icon"
                 viewBox="0 0 16 16"
                 aria-hidden="true"
+                width="20"
+                height="20"
             >
                 <g clipPath="url(#Pen_svg__a)">
                     <path
@@ -82,6 +88,8 @@ const MENU_LIST = [
                 data-test-id="cf-ui-icon"
                 viewBox="0 0 32 32"
                 aria-hidden="true"
+                width="20"
+                height="20"
             >
                 <path
                     fill="#fff"
@@ -97,27 +105,20 @@ const Navbar = () => {
     const [active, setActive] = useState(activeTab);
 
     return (
-        <NavigationStyle>
-            <header className="navHeader">
-                <nav className="navBar">
-                    <div className="navMenuList">
-                        {MENU_LIST.map(menu => (
-                            <div
-                                onClick={() => {
-                                    setActive(menu.href);
-                                }}
-                                key={menu.text}
-                                role="presentation"
-                            >
-                                <NavItem
-                                    isActive={active === menu.href}
-                                    {...menu}
-                                />
-                            </div>
-                        ))}
+        <NavigationStyle className="bg-gray-800 px-4 py-2">
+            <nav className="flex flex-row gap-x-2.5">
+                {MENU_LIST.map(menu => (
+                    <div
+                        onClick={() => {
+                            setActive(menu.href);
+                        }}
+                        key={menu.text}
+                        role="presentation"
+                    >
+                        <NavItem isActive={active === menu.href} {...menu} />
                     </div>
-                </nav>
-            </header>
+                ))}
+            </nav>
         </NavigationStyle>
     );
 };

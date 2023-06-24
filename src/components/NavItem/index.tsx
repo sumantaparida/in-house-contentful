@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 import Link from 'next/link';
 
 import NavItemStyle from './style';
