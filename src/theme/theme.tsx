@@ -16,4 +16,5 @@ export const theme = createTheme({
             contrastText: '#000',
         },
     },
+    components: {},
 });

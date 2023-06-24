@@ -1,24 +1,17 @@
-import Button from '@mui/material/Button';
+/* eslint-disable tailwindcss/no-custom-classname */
 import type { ReactNode } from 'react';
-
-import { AppConfig } from '@/utils/AppConfig';
 
 import HeaderWrapper from './style';
 
 type HeaderProps = {
     children?: ReactNode;
-    name?: string;
 };
 
 const Header = (props: HeaderProps) => {
     return (
         <HeaderWrapper>
+            <div className="top-nav bg-gray-900 px-4 py-2 text-white">sdsd</div>
             {props.children}
-            {props.name}
-            <h4 className="text-white">{AppConfig.title}</h4>
-            <Button color="success" className="bg-green-400 text-green-500">
-                Success Pagayts
-            </Button>
         </HeaderWrapper>
     );
 };

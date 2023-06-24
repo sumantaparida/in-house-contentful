@@ -11,7 +11,7 @@ const Index = () => {
                 />
             }
         >
-            Anas
+            Home Page
         </Main>
     );
 };
