@@ -7,13 +7,17 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import React from 'react';
 
+import FromRender from '@/components/Form/FormRenderer';
 import SubNav from '@/components/Subnav';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
+import { formFields } from '@/utils/Constant/FormConstant';
 
 import ContentDetailsWrapper from './style';
 
-const ContentDetails = () => {
+interface Props {}
+
+const ContentDetails: React.FC<Props> = () => {
   const [value, setValue] = React.useState('1');
   const [containervalue, setContainervalue] = React.useState('general');
 
@@ -144,7 +148,9 @@ const ContentDetails = () => {
                         />
                       </TabList>
                     </Box>
-                    <TabPanel value="general">Editor</TabPanel>
+                    <TabPanel value="general">
+                      <FromRender fields={formFields} />
+                    </TabPanel>
                     <TabPanel value="comments">Item Two</TabPanel>
                     <TabPanel value="tags">Item Two</TabPanel>
                   </TabContext>
