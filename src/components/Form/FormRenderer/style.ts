@@ -2,20 +2,32 @@ import styled from 'styled-components';
 
 const FormIkWrapper = styled.section`
   .formik_container {
+    transition: 0.3s, background-size 0.3s 0.3s;
     border-left: 5px solid #dedede;
     label {
-      font-size: 16px;
+      font-size: 14px;
       padding-bottom: 7.5px;
+      color: #3f50b5;
     }
     input {
-      border: 2px solid #dedede;
+      border: 1px solid #dedede;
       margin-bottom: 7.5px;
       padding: 5px;
+      font-size: 14px;
       &:focus {
         outline: none;
       }
     }
-    .error {
+    &.has_error {
+      border-left: 5px solid red;
+      input {
+        transition: 0.3s, background-size 0.3s 0.3s;
+        border: 1px solid red;
+      }
+      ._error {
+        color: red;
+        font-size: 14px;
+      }
     }
   }
 `;

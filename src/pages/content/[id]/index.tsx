@@ -28,6 +28,14 @@ const ContentDetails: React.FC<Props> = () => {
   const containerTabChange = (_event: React.SyntheticEvent, newValue: string) => {
     setContainervalue(newValue);
   };
+
+  const onHandleClick = () => {
+    const formName = document.getElementById('form_submit');
+    if (formName) {
+      formName.click();
+    }
+  };
+
   return (
     <Main meta={<Meta title="In house content full" description="in house content full description" />}>
       <ContentDetailsWrapper className="flex flex-row">
@@ -86,12 +94,19 @@ const ContentDetails: React.FC<Props> = () => {
                       />
                     </TabList>
                   </Box>
-                  <TabPanel value="1">Item One</TabPanel>
+                  <TabPanel value="1">
+                    <div>
+                      <button type="button" onClick={onHandleClick} className="publish_button">
+                        Form Submit
+                      </button>
+                    </div>
+                  </TabPanel>
                   <TabPanel value="2">Item Two</TabPanel>
                   <TabPanel value="3">Item Three</TabPanel>
                 </TabContext>
               </Box>
             </div>
+            {/* ANCHOR - From wrapper */}
             <div className="_r_box flex flex-1 flex-col bg-white">
               <div className="_c_sub_nav flex flex-row bg-gray-100">
                 <Box

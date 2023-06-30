@@ -2,30 +2,34 @@ import type { _T_formField } from '@/utils/types/FormType';
 
 export const formFields: _T_formField[] = [
   {
+    id: 'title',
+    name: 'Title',
+    type: 'text',
+    defaultValue: 'Dynamic Title',
+    required: true,
+    validations: [
+      {
+        regexp: {
+          pattern: '/^[A-Za-z]+$/',
+          msg: 'Only alphabetic characters are allowed',
+        },
+      },
+    ],
+    disabled: false,
+  },
+  {
     id: 'pdfFile',
     name: 'PDF file sumanta',
     type: 'Link',
-    localized: true,
     required: true,
     validations: [],
     disabled: false,
     linkType: 'Asset',
   },
   {
-    id: 'title',
-    name: 'Title',
-    type: 'text',
-    defaultValue: '',
-    localized: true,
-    required: true,
-    validations: [],
-    disabled: false,
-  },
-  {
     id: 'gender',
     name: 'Gender',
     type: 'radio',
-    localized: true,
     required: false,
     validations: [],
     disabled: false,

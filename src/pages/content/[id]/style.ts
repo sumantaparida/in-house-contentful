@@ -20,6 +20,11 @@ const ContentDetailsWrapper = styled.div`
     border-bottom: 1px solid #cbd5e0;
     padding: 0px 16px 9px 16px;
   }
+
+  .publish_button {
+    background-color: #dedede;
+    border: 1px solid #000000;
+  }
 `;
 
 export default ContentDetailsWrapper;
