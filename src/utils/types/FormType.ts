@@ -8,12 +8,13 @@ export type _T_formField = {
   name: string;
   type: 'text' | 'Link' | 'Boolean' | 'radio' | 'file';
   defaultValue?: any;
-  localized: boolean;
+  localized?: boolean;
   required: boolean;
   validations: any[];
   disabled: boolean;
   options?: FieldOption[];
   linkType?: string;
+  error?: boolean;
 };
 
 export type _T_inValues = {
