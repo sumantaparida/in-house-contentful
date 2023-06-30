@@ -19,7 +19,7 @@ const Content = () => {
     <Main meta={<Meta title="In house content full" description="in house content full description" />}>
       <ContentWrapper className="flex flex-row">
         <div className="flex flex-1 flex-col border border-solid border-black bg-slate-100">
-          <ContainerNav />
+          <ContainerNav name="Content" onlySearch={false} searchPlaceholder="Type to search for entries" isFilter buttonName="Add entry" buttonAction="/" />
           <div className="_content_wrapper flex flex-row">
             <div className="_l_box flex " />
             <div className="_r_box flex flex-1 flex-col bg-white p-5">
