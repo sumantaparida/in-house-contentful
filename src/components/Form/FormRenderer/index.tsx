@@ -5,6 +5,8 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { useEffect } from 'react';
 import * as Yup from 'yup';
 
+// import Multiline from '@/components/Form/Multiline';
+import { ErrorMsg } from '@/utils/Services/CommonServices';
 import type { _T_formField, _T_inValues } from '@/utils/types/FormType';
 
 import FormIkWrapper from './style';
@@ -16,17 +18,19 @@ const FromRender: React.FC<Props> = props => {
   const { fields } = props;
   const validationSchema = Yup.object().shape(
     fields.reduce((schema: any, field) => {
-      const { id, type, required } = field;
+      const { id, type, required, validations } = field;
       let fieldSchema;
-
-      if (type === 'text') {
-        fieldSchema = Yup.string().matches(/^[A-Za-z ]*$/, 'Only alphabetic characters are allowed');
-      } else if (type === 'Link') {
-        fieldSchema = Yup.string().url('Invalid URL');
-      } else if (type === 'Boolean') {
+      const { PATTERN, ERMSG } = ErrorMsg(validations) || {};
+      if (type === 'singleLine') {
+        fieldSchema = Yup.string().matches(PATTERN, ERMSG);
+      } else if (type === 'link') {
+        fieldSchema = Yup.string().matches(PATTERN, ERMSG);
+      } else if (type === 'singleCheck') {
         fieldSchema = Yup.boolean();
       } else if (type === 'file') {
-        fieldSchema = Yup.mixed().required(`${field.name} is required`);
+        fieldSchema = Yup.mixed().required('Required');
+      } else if (type === 'boolean') {
+        fieldSchema = Yup.boolean();
       } else {
         fieldSchema = Yup.string();
       }
@@ -74,21 +78,39 @@ const FromRender: React.FC<Props> = props => {
                 // console.log('Field', hasError);
                 return (
                   <div className={`formik_container mb-4 flex flex-col pl-2 ${hasError ? 'has_error' : ''}`} key={field.id}>
-                    <label htmlFor={field.id}>{field.name}</label>
-                    {field.type === 'text' ? (
+                    <label htmlFor={field.id}>
+                      {field.name} {field.required ? '(Required)' : null}
+                    </label>
+                    {field.type === 'singleLine' ? (
                       <Field type="text" id={field.id} name={field.id} />
-                    ) : field.type === 'Link' ? (
-                      <Field type="link" id={field.id} name={field.id} />
-                    ) : field.type === 'Boolean' ? (
-                      <Field type="checkbox" id={field.id} name={field.id} />
-                    ) : field.type === 'radio' ? (
+                    ) : field.type === 'multiLine' ? (
+                      <Field
+                        as="textarea" // Use "textarea" instead of "input" to render a textarea component
+                        id={field.id}
+                        name={field.id}
+                        rows={4} // Set the number of rows for the textarea
+                      />
+                    ) : field.type === 'boolean' ? (
                       field.options?.map(option => (
-                        <React.Fragment key={option.value}>
+                        <React.Fragment key={option.id}>
                           <Field type="radio" id={option.value} name={field.id} value={option.value} />
-                          <label htmlFor={option.value}>{option.label}</label>
+                          <label htmlFor={option.id}>{option.label}</label>
                         </React.Fragment>
                       ))
+                    ) : field.type === 'singleCheck' ? (
+                      field.options?.map(option => (
+                        <React.Fragment key={option.id}>
+                          <Field type="radio" id={option.value} name={field.id} value={option.value} />
+                          <label htmlFor={option.id}>{option.label}</label>
+                        </React.Fragment>
+                      ))
+                    ) : field.type === 'multiCheck' ? (
+                      <Field type="checkbox" id={field.id} name={field.id} />
+                    ) : field.type === 'link' ? (
+                      <Field type="text" id={field.id} name={field.id} />
                     ) : field.type === 'file' ? (
+                      <Field type="file" id={field.id} name={field.id} />
+                    ) : field.type === 'multiFile' ? (
                       <Field type="file" id={field.id} name={field.id} />
                     ) : null}
                     {/* <ErrorMessage name={field.id} component="div" className="error" /> */}
