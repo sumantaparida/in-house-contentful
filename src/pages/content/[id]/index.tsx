@@ -7,176 +7,176 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import React from 'react';
 
+import FromRender from '@/components/Form/FormRenderer';
 import SubNav from '@/components/Subnav';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
+import { formFields } from '@/utils/Constant/FormConstant';
 
 import ContentDetailsWrapper from './style';
 
-const ContentDetails = () => {
-    const [value, setValue] = React.useState('1');
-    const [containervalue, setContainervalue] = React.useState('general');
+interface Props {}
 
-    const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
-        setValue(newValue);
-    };
+const ContentDetails: React.FC<Props> = () => {
+  const [value, setValue] = React.useState('1');
+  const [containervalue, setContainervalue] = React.useState('general');
 
-    const containerTabChange = (
-        _event: React.SyntheticEvent,
-        newValue: string,
-    ) => {
-        setContainervalue(newValue);
-    };
+  const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
 
-    console.log('event', value, containervalue);
-    return (
-        <Main
-            meta={
-                <Meta
-                    title="In house content full"
-                    description="in house content full description"
-                />
-            }
-        >
-            <ContentDetailsWrapper className="flex flex-row">
-                <div className="flex flex-1 flex-col border border-solid border-black bg-slate-100">
-                    <SubNav />
-                    <div className="_content_wrapper flex flex-row-reverse">
-                        <div className="_l_box flex bg-gray-200 ">
-                            <Box
-                                sx={{
-                                    width: '100%',
-                                    typography: 'body1',
-                                }}
-                            >
-                                <TabContext value={value}>
-                                    <Box
-                                        sx={{
-                                            borderBottom: 1,
-                                            borderColor: 'divider',
-                                        }}
-                                    >
-                                        <TabList
-                                            onChange={handleChange}
-                                            aria-label="lab API tabs example"
-                                            sx={{
-                                                color: 'black',
-                                                borderBottom: 1,
-                                                borderColor: '#cbd5e0',
-                                            }}
-                                        >
-                                            <Tab
-                                                label="General"
-                                                value="1"
-                                                sx={{
-                                                    color: 'black',
-                                                    fontSize: '12px',
-                                                    fontWeight: 'bold',
-                                                }}
-                                            />
-                                            <Tab
-                                                label="Comments"
-                                                value="2"
-                                                sx={{
-                                                    color: 'black',
-                                                    fontSize: '12px',
-                                                    fontWeight: 'bold',
-                                                }}
-                                            />
-                                            <Tab
-                                                label="Info"
-                                                value="3"
-                                                sx={{
-                                                    color: 'black',
-                                                    fontSize: '12px',
-                                                    fontWeight: 'bold',
-                                                }}
-                                            />
-                                        </TabList>
-                                    </Box>
-                                    <TabPanel value="1">Item One</TabPanel>
-                                    <TabPanel value="2">Item Two</TabPanel>
-                                    <TabPanel value="3">Item Three</TabPanel>
-                                </TabContext>
-                            </Box>
-                        </div>
-                        <div className="_r_box flex flex-1 flex-col bg-white">
-                            <div className="_c_sub_nav flex flex-row bg-gray-100">
-                                <Box
-                                    sx={{
-                                        width: '100%',
-                                        typography: 'body1',
-                                    }}
-                                >
-                                    <TabContext value={containervalue}>
-                                        <Box
-                                            sx={{
-                                                borderBottom: 1,
-                                                borderColor: 'divider',
-                                            }}
-                                        >
-                                            <TabList
-                                                onChange={containerTabChange}
-                                                aria-label="lab API tabs example"
-                                                sx={{
-                                                    color: 'black',
-                                                    borderBottom: 1,
-                                                    borderColor: '#cbd5e0',
-                                                }}
-                                            >
-                                                <Tab
-                                                    label="Editor"
-                                                    value="general"
-                                                    sx={{
-                                                        color: 'black',
-                                                        fontSize: '14px',
-                                                        fontWeight: 'bold',
-                                                        textTransform:
-                                                            'inherit',
-                                                    }}
-                                                />
-                                                <Tab
-                                                    label="References"
-                                                    value="comments"
-                                                    sx={{
-                                                        color: 'black',
-                                                        fontSize: '14px',
-                                                        fontWeight: 'bold',
-                                                        textTransform:
-                                                            'inherit',
-                                                    }}
-                                                />
-                                                <Tab
-                                                    label="Tags"
-                                                    value="tags"
-                                                    sx={{
-                                                        color: 'black',
-                                                        fontSize: '14px',
-                                                        fontWeight: 'bold',
-                                                        textTransform:
-                                                            'inherit',
-                                                    }}
-                                                />
-                                            </TabList>
-                                        </Box>
-                                        <TabPanel value="general">
-                                            Editor
-                                        </TabPanel>
-                                        <TabPanel value="comments">
-                                            Item Two
-                                        </TabPanel>
-                                        <TabPanel value="tags">
-                                            Item Two
-                                        </TabPanel>
-                                    </TabContext>
-                                </Box>
-                            </div>
-                        </div>
+  const containerTabChange = (_event: React.SyntheticEvent, newValue: string) => {
+    setContainervalue(newValue);
+  };
+
+  const onHandleClick = () => {
+    const formName = document.getElementById('form_submit');
+    if (formName) {
+      formName.click();
+    }
+  };
+
+  return (
+    <Main meta={<Meta title="In house content full" description="in house content full description" />}>
+      <ContentDetailsWrapper className="flex flex-row">
+        <div className="flex flex-1 flex-col border border-solid border-black bg-slate-100">
+          <SubNav />
+          <div className="_content_wrapper flex flex-row-reverse">
+            <div className="_l_box flex bg-gray-200 ">
+              <Box
+                sx={{
+                  width: '100%',
+                  typography: 'body1',
+                }}
+              >
+                <TabContext value={value}>
+                  <Box
+                    sx={{
+                      borderBottom: 1,
+                      borderColor: 'divider',
+                    }}
+                  >
+                    <TabList
+                      onChange={handleChange}
+                      aria-label="lab API tabs example"
+                      sx={{
+                        color: 'black',
+                        borderBottom: 1,
+                        borderColor: '#cbd5e0',
+                      }}
+                    >
+                      <Tab
+                        label="General"
+                        value="1"
+                        sx={{
+                          color: 'black',
+                          fontSize: '12px',
+                          fontWeight: 'bold',
+                        }}
+                      />
+                      <Tab
+                        label="Comments"
+                        value="2"
+                        sx={{
+                          color: 'black',
+                          fontSize: '12px',
+                          fontWeight: 'bold',
+                        }}
+                      />
+                      <Tab
+                        label="Info"
+                        value="3"
+                        sx={{
+                          color: 'black',
+                          fontSize: '12px',
+                          fontWeight: 'bold',
+                        }}
+                      />
+                    </TabList>
+                  </Box>
+                  <TabPanel value="1">
+                    <div>
+                      <button type="button" onClick={onHandleClick} className="publish_button">
+                        Form Submit
+                      </button>
                     </div>
-                </div>
-            </ContentDetailsWrapper>
-        </Main>
-    );
+                  </TabPanel>
+                  <TabPanel value="2">Item Two</TabPanel>
+                  <TabPanel value="3">Item Three</TabPanel>
+                </TabContext>
+              </Box>
+            </div>
+            {/* ANCHOR - From wrapper */}
+            <div className="_r_box flex flex-1 flex-col bg-white">
+              <div className="_c_sub_nav flex flex-row bg-gray-100">
+                <Box
+                  sx={{
+                    width: '100%',
+                    typography: 'body1',
+                  }}
+                >
+                  <TabContext value={containervalue}>
+                    <Box
+                      sx={{
+                        borderBottom: 1,
+                        borderColor: 'divider',
+                      }}
+                    >
+                      <TabList
+                        onChange={containerTabChange}
+                        aria-label="lab API tabs example"
+                        sx={{
+                          color: 'black',
+                          borderBottom: 1,
+                          borderColor: '#cbd5e0',
+                        }}
+                      >
+                        <Tab
+                          label="Editor"
+                          value="general"
+                          sx={{
+                            color: 'black',
+                            fontSize: '14px',
+                            fontWeight: 'bold',
+                            textTransform: 'inherit',
+                          }}
+                        />
+                        <Tab
+                          label="References"
+                          value="comments"
+                          sx={{
+                            color: 'black',
+                            fontSize: '14px',
+                            fontWeight: 'bold',
+                            textTransform: 'inherit',
+                          }}
+                        />
+                        <Tab
+                          label="Tags"
+                          value="tags"
+                          sx={{
+                            color: 'black',
+                            fontSize: '14px',
+                            fontWeight: 'bold',
+                            textTransform: 'inherit',
+                          }}
+                        />
+                      </TabList>
+                    </Box>
+                    <TabPanel value="general">
+                      <FromRender fields={formFields} />
+                    </TabPanel>
+                    <TabPanel value="comments">Item Two</TabPanel>
+                    <TabPanel value="tags">Item Two</TabPanel>
+                  </TabContext>
+                </Box>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ContentDetailsWrapper>
+    </Main>
+  );
 };
 
 export default ContentDetails;
