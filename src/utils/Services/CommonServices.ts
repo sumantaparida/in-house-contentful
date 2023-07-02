@@ -28,3 +28,15 @@ export const ErrorMsg = (validations: any) => {
   }
   return { PATTERN, ERMSG };
 };
+
+export const getValueFromArray = (selectOpt: { value: any }[]): any[] => {
+  let list: any[] = [];
+
+  selectOpt.map((ele: { value: any }) => {
+    const { value } = ele || {};
+    list = [...list, value];
+    return null;
+  });
+
+  return list;
+};

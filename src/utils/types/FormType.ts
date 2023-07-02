@@ -1,5 +1,6 @@
 export type FIELD_TEXT_TYPE = 'singleLine' | 'multiLine';
 export type FIELD_SELECT_TYPE = 'boolean' | 'singleCheck' | 'multiCheck';
+export type FIELD_SELECTION_TYPE = 'select';
 export type FIELD_LINK_TYPE = 'link';
 export type FIELD_TYPE = 'file' | 'multiFile';
 
@@ -19,7 +20,7 @@ export type FieldOption = {
 export type _T_formField = {
   id: string;
   name: string;
-  type: FIELD_TEXT_TYPE | FIELD_SELECT_TYPE | FIELD_LINK_TYPE | FIELD_TYPE;
+  type: FIELD_TEXT_TYPE | FIELD_SELECT_TYPE | FIELD_SELECTION_TYPE | FIELD_LINK_TYPE | FIELD_TYPE;
   defaultValue?: any;
   localized?: boolean;
   required: boolean;
