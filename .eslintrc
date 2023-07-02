@@ -10,9 +10,11 @@
       "error",
       {
         "singleQuote": true,
+        "tabWidth": 2,
         "endOfLine": "auto"
       }
-    ]
+    ],
+    "no-nested-ternary": "off"
   },
   "overrides": [
     // Configuration for TypeScript files
@@ -40,9 +42,11 @@
           "error",
           {
             "singleQuote": true,
+            "tabSize" : 2,
             "endOfLine": "auto"
           }
         ],
+        "no-nested-ternary": "off",
         "react/function-component-definition": "off", // Disable Airbnb's specific function type
         "react/destructuring-assignment": "off", // Vscode doesn't support automatically destructuring, it's a pain to add a new variable
         "react/require-default-props": "off", // Allow non-defined react props as undefined
@@ -68,7 +72,27 @@
         ],
         "no-unused-vars": "off",
         "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}],
-        "no-console": ["error", { "allow": ["warn", "error", "log"] }]
+        "no-console": ["error", { "allow": ["warn", "error", "log"] }],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "variable",
+            "format": ["UPPER_CASE", "camelCase", "PascalCase"]
+          },
+          {
+            "selector": "typeParameter",
+            "format": ["PascalCase"],
+            "prefix": ["T"]
+          },
+          {
+            "selector": "interface",
+            "format": ["PascalCase"],
+            "custom": {
+              "regex": "^I[A-Z]",
+              "match": false
+            }
+          }
+        ]
       }
     },
     // Configuration for testing

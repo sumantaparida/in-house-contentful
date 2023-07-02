@@ -4,16 +4,16 @@ import type { ReactNode } from 'react';
 import HeaderWrapper from './style';
 
 type HeaderProps = {
-    children?: ReactNode;
+  children?: ReactNode;
 };
 
 const Header = (props: HeaderProps) => {
-    return (
-        <HeaderWrapper>
-            <div className="top-nav bg-gray-900 px-4 py-2 text-white">sdsd</div>
-            {props.children}
-        </HeaderWrapper>
-    );
+  return (
+    <HeaderWrapper>
+      <div className="top-nav bg-gray-900 px-4 py-2 text-white">sdsd</div>
+      {props.children}
+    </HeaderWrapper>
+  );
 };
 
 export default Header;
