@@ -6,7 +6,7 @@ import React, { useEffect } from 'react';
 import * as Yup from 'yup';
 
 // import Multiline from '@/components/Form/Multiline';
-import { ErrorMsg } from '@/utils/Services/CommonServices';
+import { ErrorMsg, getValueFromArray } from '@/utils/Services/CommonServices';
 import type { _T_formField, _T_inValues } from '@/utils/types/FormType';
 
 import FormIkWrapper from './style';
@@ -18,19 +18,24 @@ const FromRender: React.FC<Props> = props => {
   const { fields } = props;
   const validationSchema = Yup.object().shape(
     fields.reduce((schema: any, field) => {
-      const { id, type, required, validations } = field;
+      const { id, type, required, validations, options } = field;
       let fieldSchema;
       const { PATTERN, ERMSG } = ErrorMsg(validations) || {};
       if (type === 'singleLine') {
         fieldSchema = Yup.string().matches(PATTERN, ERMSG);
       } else if (type === 'link') {
         fieldSchema = Yup.string().matches(PATTERN, ERMSG);
-      } else if (type === 'singleCheck') {
-        fieldSchema = Yup.boolean();
-      } else if (type === 'file') {
-        fieldSchema = Yup.mixed().required('Required');
       } else if (type === 'boolean') {
         fieldSchema = Yup.boolean();
+      } else if (type === 'singleCheck') {
+        fieldSchema = Yup.string();
+      } else if (type === 'multiCheck') {
+        fieldSchema = Yup.array().of(Yup.string()).min(1);
+      } else if (type === 'select') {
+        const OPT = getValueFromArray(options || []);
+        fieldSchema = Yup.string().oneOf(OPT);
+      } else if (type === 'file') {
+        fieldSchema = Yup.mixed().required('Required');
       } else {
         fieldSchema = Yup.string();
       }
@@ -71,6 +76,7 @@ const FromRender: React.FC<Props> = props => {
     <FormIkWrapper className="flex flex-col px-8">
       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
         {(formData: any) => {
+          console.log('formData', formData);
           return (
             <Form>
               {fields.map(field => {
@@ -91,21 +97,54 @@ const FromRender: React.FC<Props> = props => {
                         rows={4} // Set the number of rows for the textarea
                       />
                     ) : field.type === 'boolean' ? (
-                      field.options?.map(option => (
-                        <React.Fragment key={option.id}>
-                          <Field type="radio" id={option.value} name={field.id} value={option.value} />
-                          <label htmlFor={option.id}>{option.label}</label>
-                        </React.Fragment>
-                      ))
+                      <div className="flex flex-col items-start">
+                        {field.options?.map(option => (
+                          <div key={option.id} className="flex flex-row gap-3">
+                            <Field type="radio" id={option.id} name={field.id} value={option.value} />
+                            <label htmlFor={option.id}>{option.label}</label>
+                          </div>
+                        ))}
+                        {!hasError ? (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              formData.setFieldValue(field.id, '');
+                            }}
+                            className="clearButton bg-slate-400 px-2 py-1"
+                          >
+                            clear
+                          </button>
+                        ) : null}
+                      </div>
                     ) : field.type === 'singleCheck' ? (
-                      field.options?.map(option => (
-                        <React.Fragment key={option.id}>
-                          <Field type="radio" id={option.value} name={field.id} value={option.value} />
-                          <label htmlFor={option.id}>{option.label}</label>
-                        </React.Fragment>
-                      ))
+                      <div className="flex flex-col items-start">
+                        {field.options?.map(option => (
+                          <div key={option.id} className="flex flex-row gap-3">
+                            <Field type="radio" id={option.value} name={field.id} value={option.value} />
+                            <label htmlFor={option.id}>{option.label}</label>
+                          </div>
+                        ))}
+                      </div>
                     ) : field.type === 'multiCheck' ? (
-                      <Field type="checkbox" id={field.id} name={field.id} />
+                      <div role="group" aria-labelledby="checkbox-group" className="flex flex-col items-start">
+                        {field.options?.map(option => (
+                          <div key={option.id} className="flex flex-row gap-3">
+                            <Field type="checkbox" id={option.value} name={field.id} value={option.value} />
+                            <label htmlFor={option.id}>{option.label}</label>
+                          </div>
+                        ))}
+                      </div>
+                    ) : field.type === 'select' ? (
+                      <div role="group" aria-labelledby="selection-group">
+                        <Field id={field.id} name={field.id} as="select">
+                          <option value="">Select an option</option>
+                          {field.options?.map(option => (
+                            <option key={option.id} value={option.value.toString()}>
+                              {option.label}
+                            </option>
+                          ))}
+                        </Field>
+                      </div>
                     ) : field.type === 'link' ? (
                       <Field type="text" id={field.id} name={field.id} />
                     ) : field.type === 'file' ? (
